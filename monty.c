@@ -70,8 +70,6 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int, char *)
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line, s);
 	exit(EXIT_FAILURE);
-
-	return (NULL);
 }
 
 /**
@@ -144,9 +142,12 @@ void pall(stack_t **stack, unsigned int line_number, char *val)
  */
 void free_stack(stack_t *stack)
 {
+	stack_t *current;
+
 	while (stack != NULL)
 	{
-		free(stack);
+		current = stack;
 		stack = stack->next;
+		free(current);
 	}
 }
