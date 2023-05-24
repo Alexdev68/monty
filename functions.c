@@ -50,4 +50,6 @@ void nop(stack_t **stack, unsigned int line_number, char *val)
 	(void)stack;
 	(void)line_number;
 	(void)val;
+
+	return;
 }
