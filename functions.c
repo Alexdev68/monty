@@ -3,7 +3,6 @@
  * pint - This function prints the value on top of the stack
  * @stack: A double pointer to the head of the stack
  * @line_number: The number at the which the node is found
- * @val: A pointer to character value
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
@@ -18,7 +17,6 @@ void pint(stack_t **stack, unsigned int line_number)
  * pop - This function removes the top element of the stack
  * @stack: A double pointer to the head of the stack
  * @line_number: The number at the which the node is found
- * @val: A pointer to character value
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
@@ -40,7 +38,6 @@ void pop(stack_t **stack, unsigned int line_number)
  * nop - This function does absolutely nothing
  * @stack: A double pointer to the head of the stack
  * @line_number: The number at the which the node is found
- * @val: A pointer to character value
  */
 void nop(stack_t **stack, unsigned int line_number)
 {

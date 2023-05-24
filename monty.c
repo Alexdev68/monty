@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char *op_val;
+
 /**
  * main - This is the entry point
  * @argc: This is the argument count
@@ -12,7 +14,6 @@ int main(int argc, char **argv)
 	FILE *ptr;
 	unsigned int line_number = 0;
 	char *opcode;
-	char *op_val;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -34,7 +35,7 @@ int main(int argc, char **argv)
 		opcode = strtok(buff, " \t\n");
 		op_val = strtok(NULL, " \t\n");
 
-		fnd_func(opcode, line_number)(&stack, line_number, op_val);
+		fnd_func(opcode, line_number)(&stack, line_number);
 	}
 	fclose(ptr);
 	free_stack(stack);
@@ -79,12 +80,12 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int)
  * push - This function pushes values unto the stack
  * @stack: This is a pointer to the top of the stack
  * @line_number: This is the current line of the file being read from
- * @val: This is the value to be pushed unto the stack
  */
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	int value;
+	char *val = op_val;
 
 	if (val == NULL)
 	{
@@ -117,7 +118,6 @@ void push(stack_t **stack, unsigned int line_number)
  * pall - This function prints all the values of the stack out
  * @stack: This is a pointer to the top of the stack
  * @line_number: This is the current line of the file being read from
- * @val: This is the value to be pushed unto the stack
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
