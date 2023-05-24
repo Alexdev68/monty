@@ -33,6 +33,11 @@ int main(int argc, char **argv)
 	{
 		line_number++;
 		opcode = strtok(buff, " \t\n");
+		if (!opcode || strcmp(opcode, "nop") == 0)
+		{
+			continue;
+		}
+
 		op_val = strtok(NULL, " \t\n");
 
 		fnd_func(opcode, line_number)(&stack, line_number);
@@ -60,7 +65,6 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-		{"nop", nop},
 		{"swap", swap},
 		{"add", add},
 		{NULL, NULL}

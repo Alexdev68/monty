@@ -35,17 +35,6 @@ void pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * nop - This function does nothing
- * @stack: A double pointer to the head of the stack
- * @line_number: The number at the which the node is found
- */
-void nop(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
-
-/**
  * swap - This function swaps the top two functions on the stack
  * @stack: This is a double pointer to the top of the stack
  * @line_number: The number at the which the opcode is found
