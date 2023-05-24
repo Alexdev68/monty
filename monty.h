@@ -39,5 +39,5 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int, char *);
 void push(stack_t **stack, unsigned int line_number, char *val);
 void pall(stack_t **stack, unsigned int line_number, char *val);
 void free_stack(stack_t *stack);
-
+void pint(stack_t **stack, unsigned int line_number, char *val);
 #endif

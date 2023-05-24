@@ -57,6 +57,7 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int, char *)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
