@@ -50,7 +50,7 @@ int main(int argc, char **argv)
  * Return: This returns a pointer to the function the corresponds
  * with the opcode
  */
-void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int, char *)
+void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int)
 {
 	int i;
 
@@ -81,7 +81,7 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int, char *)
  * @line_number: This is the current line of the file being read from
  * @val: This is the value to be pushed unto the stack
  */
-void push(stack_t **stack, unsigned int line_number, char *val)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	int value;
@@ -119,10 +119,9 @@ void push(stack_t **stack, unsigned int line_number, char *val)
  * @line_number: This is the current line of the file being read from
  * @val: This is the value to be pushed unto the stack
  */
-void pall(stack_t **stack, unsigned int line_number, char *val)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
-	(void)val;
 	(void)line_number;
 
 	if (*stack == NULL)

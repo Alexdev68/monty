@@ -5,10 +5,8 @@
  * @line_number: The number at the which the node is found
  * @val: A pointer to character value
  */
-void pint(stack_t **stack, unsigned int line_number, char *val)
+void pint(stack_t **stack, unsigned int line_number)
 {
-	(void)val;
-
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
@@ -22,10 +20,9 @@ void pint(stack_t **stack, unsigned int line_number, char *val)
  * @line_number: The number at the which the node is found
  * @val: A pointer to character value
  */
-void pop(stack_t **stack, unsigned int line_number, char *val)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
-	(void)val;
 
 	if (*stack == NULL)
 	{
@@ -45,11 +42,8 @@ void pop(stack_t **stack, unsigned int line_number, char *val)
  * @line_number: The number at the which the node is found
  * @val: A pointer to character value
  */
-void nop(stack_t **stack, unsigned int line_number, char *val)
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-	(void)val;
-
-	return;
 }
