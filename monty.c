@@ -85,6 +85,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	int value;
+	int i = 0;
 	char *val = op_val;
 
 	if (val == NULL)
@@ -92,16 +93,26 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
+	if (val)
+	{
+		if (val[i] == '-')
+			i++;
+		for (; val[i]; i++)
+		{
+			if (val[i] > 57 || val[i] < 48)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
 	value = atoi(val);
-
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	new->n = value;
 	new->prev = NULL;
 	new->next = (*stack);
@@ -110,7 +121,6 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		(*stack)->prev = new;
 	}
-
 	(*stack) = new;
 }
 
