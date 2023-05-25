@@ -4,7 +4,7 @@
  * @stack: This is a double pointer to the top of the stack
  * @line_number: The number at the which the opcode is found
  */
-void division(stack_t **stack, unsigned line_number)
+void division(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 	stack_t *top;
@@ -23,7 +23,7 @@ void division(stack_t **stack, unsigned line_number)
 	}
 	top = *stack;
 	second = (*stack)->next;
-	if (second->n == 0)
+	if (top->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
