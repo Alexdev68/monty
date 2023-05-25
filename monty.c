@@ -68,6 +68,7 @@ void (*fnd_func(char *s, unsigned int line))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
+		{"div", division},
 		{NULL, NULL}
 	};
 
