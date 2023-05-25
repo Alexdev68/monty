@@ -20,8 +20,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't rotl, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
+		return;
 	}
 
 	top = *stack;
@@ -55,8 +54,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't rotr, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
+		return;
 	}
 	last = *stack;
 	while (last->next != NULL)
