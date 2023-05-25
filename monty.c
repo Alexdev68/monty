@@ -34,9 +34,9 @@ int main(int argc, char **argv)
 		line_number++;
 		opcode = strtok(buff, " \t\n");
 		if (!opcode || strcmp(opcode, "nop") == 0)
-		{
 			continue;
-		}
+		if (strcmp(opcode, "#") == 0)
+			continue;
 
 		op_val = strtok(NULL, " \t\n");
 
