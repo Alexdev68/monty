@@ -117,7 +117,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->n < 0 && (*stack)->n > 255)
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n",
 				line_number);
@@ -128,7 +128,11 @@ void pchar(stack_t **stack, unsigned int line_number)
 	putchar('\n');
 }
 
-
+/**
+ * pstr - This function prints the string starting at the top of the stack
+ * @stack: This is a pointer to the top of the stack
+ * @line_number: This is the current line in which the opcode is found
+ */
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
@@ -137,7 +141,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		putchar('\n');
-		exit(EXIT_FAILURE);
+		return;
 	}
 
 	current = *stack;
@@ -147,12 +151,12 @@ void pstr(stack_t **stack, unsigned int line_number)
 		if (current->n == 0)
 		{
 			putchar('\n');
-			exit(EXIT_FAILURE);
+			return;
 		}
-		if (current->n < 0 && current->n > 255)
+		if (current->n < 0 || current->n > 127)
 		{
 			putchar('\n');
-			exit(EXIT_FAILURE);
+			return;
 		}
 		putchar(current->n);
 		current = current->next;
