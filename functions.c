@@ -110,3 +110,36 @@ void add(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 	free(current);
 }
+/**
+ * sub - This function subtracts the top 2 elements of a stack
+ * @stack: This is a double pointer to the top of the stack
+ * @line_number: The number at the which the opcode is found
+ */
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+	stack_t *top;
+	stack_t *second;
+	int count, sub = 0;
+
+	while (current != NULL)
+	{
+		current = current->next;
+		count++;
+	}
+	if (count < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	second = (*stack)->next;
+	sub -= (top->n - second->n);
+	second->n = sub;
+
+	current = *stack;
+	*stack = current->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(current);
+}
