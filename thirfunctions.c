@@ -6,11 +6,23 @@
  */
 void rotl(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top, *second, *last;
+	stack_t *top;
+	stack_t *second;
+	stack_t *last;
+	stack_t *current = *stack;
+	int count = 0;
 	(void)line_number;
 
-	if (*stack == NULL)
-		return;
+	while (current != NULL)
+	{
+		current = current->next;
+		count++;
+	}
+	if (count < 2)
+	{
+		fprintf(stderr, "L%d: can't rotl, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	top = *stack;
 	second = top->next;
@@ -32,11 +44,20 @@ void rotl(stack_t **stack, unsigned int line_number)
 void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last;
+	stack_t *current = *stack;
+	int count = 0;
 	(void)line_number;
 
-	if (*stack == NULL)
-		return;
-
+	while (current != NULL)
+	{
+		current = current->next;
+		count++;
+	}
+	if (count < 2)
+	{
+		fprintf(stderr, "L%d: can't rotr, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	last = *stack;
 	while (last->next != NULL)
 		last = last->next;
