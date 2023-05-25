@@ -9,7 +9,7 @@ void division(stack_t **stack, unsigned int line_number)
 	stack_t *current = *stack;
 	stack_t *top;
 	stack_t *second;
-	int count = 0, div = 0;
+	int count = 0;
 
 	while (current != NULL)
 	{
@@ -28,8 +28,7 @@ void division(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	div += (top->n / second->n);
-	second->n = div;
+	second->n =  (second->n / top->n);
 	current = *stack;
 	*stack = current->next;
 	if (*stack != NULL)
